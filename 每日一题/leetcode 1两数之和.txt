@@ -1,0 +1,33 @@
+//双指针
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int start = 0, end = nums.length - 1;
+        final int size = nums.length;
+        while (start < end) {
+            final int tmp = nums[end] + nums[start];
+            if (target == tmp) {
+                return new int[]{ start, end };
+            }
+            if (tmp < target) {
+                start += 1;
+            } else {
+                end -= 1;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
+}
+//暴力法
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if((nums[i]+nums[j])==target){
+                    return new int[] {i,j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+}
